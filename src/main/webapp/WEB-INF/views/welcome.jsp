@@ -10,22 +10,12 @@
 <body>
 <!-- search section -->
 <section class="login-section">
-
-   <table align="center">
-       <tr>
-       	<td>
-        <h4 style="color:#878787;">Welcome ${username} !<br></h4>
-        </td>
-		</tr>
-        
-		<tr>
-        <td>
-        <a href="/springMVC" class="site-btn header-btn">Home</a>
-        </td>
-        </tr>
-
-  </table>
-
+  <div class="container center">
+      <h4 style="color:#878787;">Welcome ${username} !</h4>
+		<br><br>
+      <a href="/springMVC"  align = "center">Home</a>
+      <br>
+  </div>
 </section>
 
 

@@ -11,9 +11,9 @@
 <!-- search section -->
 <section class="login-section">
   <div class="container center">
-        <h2>Login / Sign up</h2>
+        <h2>Login</h2>
 
-          <form:form id="loginForm"  modelAttribute="user" action="loginProcess" method="post">
+          <form:form id="loginForm"  modelAttribute="login" action="loginProcess" method="post">
             <br>
             <input type="text" placeholder="Enter Username" name="username" id = "username" required>
             <br>
@@ -25,7 +25,7 @@
           </form:form>
           <br>
 		  <p> If you haven't signed up, please signed up first.</p>
-          <button class="signup-btn" class="signupbtn">Sign Up</button>
+		  <a href="signup">Sign up</a>
 		  <br>
 		  <br>
           <h4 style="color:Tomato;">${message}</h4>

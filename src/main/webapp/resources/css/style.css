@@ -140,12 +140,13 @@ ol {
 
 .search-section {
   /*margin-top: 80px;*/
-  padding-top: 30px;
+  margin-top: 30px;
 }
 .login-section {
   /*margin-top: 80px;*/
   padding-top: 150px;
 }
+
 
 /*------------------
   hero section
@@ -153,7 +154,7 @@ ol {
 .hero-section {
   /*margin-top: 80px;*/
   height: 400px;
-  padding-top: 130px;
+  margin-top: 130px;
 }
 
 .hero-image {
@@ -179,9 +180,6 @@ ol {
   color: white;
 }
 
-/*------------------
-  Search section
----------------------*/
 
 /*------------------
   Categories section

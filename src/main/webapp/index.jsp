@@ -19,9 +19,8 @@
 					<nav class="main-menu">
 						<ul>
 							<li><a href="index.jsp">Home</a></li>
+							<li><a href="courses">Courses</a></li>
 							<li><a href="#">About us</a></li>
-							<li><a href="courses.html">Courses</a></li>
-							<li><a href="blog.html">News</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -45,14 +44,14 @@
       <div class="row">
         <div class="col-md-10  offset-md-1">
           <!-- search form -->
-          <form action="" method="post">
+          <form id="searchform" action="search" method="post">
             <input type="text" name="name" placeholder="Enter course" >
             <select name="type">
               <option value="title">title</option>
               <option value="series">series</option>
               <option value="category">category</option>
             </select>
-            <button class="site-btn">Search Couse</button>
+            <button class="site-btn">Search Course</button>
           </form>
         </div>
       </div>

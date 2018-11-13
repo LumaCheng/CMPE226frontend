@@ -20,7 +20,7 @@
            <form:label path="username">Username: </form:label>
            </td>
             <td>
-           <form:input path="username" name="username" id="username" />
+           <form:input path="username" name="username" id="username" required = "required"/>
            </td>
 		</tr>
 		<tr>
@@ -28,7 +28,7 @@
             <form:label path="password">Password: </form:label>
             </td>
              <td>
-           <form:password path="password" name="password" id="password" />
+           <form:password path="password" name="password" id="password"  required = "required"/>
            </td>
 		</tr>
 		<tr>
@@ -36,7 +36,7 @@
             <form:label path="email">Email: </form:label>
             </td>
              <td>
-           <form:input path="email" name="email" id="email" />
+           <form:input path="email" name="email" id="email"  required = "required"/>
            </td>
 		</tr>
 		<tr>
@@ -44,9 +44,9 @@
         		<form:label path= "type">Type: </form:label>
         		</td>
         		<td>
-			<form:radiobutton path= "type" name="student" id="student" label= "student" checked = "checked"/>
-			<form:radiobutton path= "type" name="instructor" id="instructor" label= "instructor"/>
-			<form:radiobutton path= "type" name="institute" id="institute" label= "institute"/>
+			<form:radiobutton path= "type" name="student" id="student" label= "Student" checked = "checked"/>
+			<form:radiobutton path= "type" name="instructor" id="instructor" label= "Instructor"/>
+			<form:radiobutton path= "type" name="institute" id="institute" label= "Institute"/>
 			</td>
 		</tr>
          </table>

@@ -46,6 +46,15 @@ public class WebController {
 	    return mav;
 	  }
 	  
+	  
+	  @RequestMapping(value = "/logout", method = RequestMethod.GET)
+	  public ModelAndView showLogout(HttpServletRequest request, HttpServletResponse response) {
+	    ModelAndView mav = new ModelAndView("logout");
+	    return mav;
+	  }	
+	  
+	  
+	  
 	 //  ======================
 	 //         sign up
 	 //  ======================
@@ -69,10 +78,10 @@ public class WebController {
 	 //        search
 	 //  ======================
 	  
-	  @RequestMapping(value = "/courses", method = RequestMethod.GET)
+	  @RequestMapping(value = "/search", method = RequestMethod.POST)
 	  public ModelAndView search(HttpServletRequest request, HttpServletResponse response) {
 	//	  userService.register(user);
-		  return new ModelAndView("single_course");
+		  return new ModelAndView("search_result");
 	  }
 	  
 	  
@@ -80,9 +89,9 @@ public class WebController {
 	 //        courses
 	 //  ======================
 	  
-	  @RequestMapping(value = "/courses", method = RequestMethod.POST)
+	  @RequestMapping(value = "/courses", method = RequestMethod.GET)
 	  public ModelAndView courses(HttpServletRequest request, HttpServletResponse response) {
 	//	  userService.register(user);
-		  return new ModelAndView("search_result");
+		  return new ModelAndView("single_course");
 	  }
 }

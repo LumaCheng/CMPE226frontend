@@ -6,7 +6,7 @@
 </head>
 <link rel="stylesheet" href="resources/css/style.css">
 <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
 <!-- Header section -->
   <header class="header-section">
@@ -16,7 +16,7 @@
           			<h2>Learning X</h2>
 				</div>
 				<div class="col-lg-9 col-md-9">
-					<a href="login" class="site-btn header-btn" id= "account">Login</a>
+					<a href="login" class="site-btn header-btn" id = "account">Login</a>
 					<nav class="main-menu">
 						<ul>
 							<li><a href="index.jsp">Home</a></li>
@@ -37,7 +37,7 @@
 	var cookieuser = getCookie("username");
 
 	document.getElementById("read").innerHTML = cookieuser;
-	
+	document.getElementById("showuser").innerHTML = cookieuser;
 	var link = document.getElementById("account");
 	if(cookieuser != ""){	
 		link.innerHTML = "Myaccount: " + cookieuser;
@@ -69,42 +69,69 @@
 </section>
 <!-- search section end -->
 
+
+
+
+	<!-- single course section -->
 	<section class="single-course spad pb-0">
 		<div class="container">
-
 			<div class="course-meta-area">
-				<div class="course-meta offset-lg-2">
-					<h4>Search Result</h4>
-				</div>
-				<br><br>
 				<div class="row">
 					<div class="col-lg-10 offset-lg-1">
+						<div class="course-note">Featured Course</div>
+						<h3>${course.coursename}</h3>
 						<div class="course-metas">
-							<c:if test="${courselist != null}">
-							    <table>
-							    		<tr>
-							    			<th>Course name</th>
-							    			<th>Course ID</th>
-							    			<th>Session</th>
-							    			<th>Description</th>
-							    		</tr>
-							        <c:forEach var="c" items="${courselist}">
-							            <tr>
-							                <td>${c.coursename}</td>
-							                <td>${c.ID}</td>
-							                <td>${c.session}</td>
-							                <td>${c.description}</td>
-							            </tr>
-							        </c:forEach>
-							    </table>
-							</c:if>
-						</div>
+<!-- 							<div class="course-meta">
+								<div class="course-author">
+									<h6>Teacher</h6>
+									<p>William Parker, <span>Developer</span></p>
+								</div>
+							</div>
+							<div class="course-meta">
+								<div class="cm-info">
+									<h6>Category</h6>
+									<p>Development</p>
+								</div>
+							</div> -->
+ 							<div class="course-meta">
+								<div class="cm-info">
+									<h6>ID</h6>
+									<p>${course.ID}</p>
+								</div>
+							</div> 
+							<div class="course-meta">
+								<div class="cm-info">
+									<h6>Session</h6>
+									<p>${course.session}</p>
+								</div>
+							</div>
+						</div>	
+						<div class="course-meta">
+						<h5 align = "center" style="color:#878787;"> Homework</h5>
+						<c:if test="${homeworklist != null}">
+					    <table>
+					    		<tr>
+				        			<th>Contents</th>
+				        			<th>Due date</th>
+					        	<tr>
+					        <c:forEach var="h" items="${homeworklist}">
+					            <tr class= "${r.username}">					        
+					                <td>${h.contents}</td>
+					                <td>${h.due}</td>
+					            </tr>
+					        </c:forEach>
+					    </table>
+						</c:if>
+						</div>				
 					</div>
-				</div>
+				</div>			
 			</div>
-		</div>
-	</section>
 
+		</div>
+
+	</section>
+	
+<script src="resources/js/myScript.js"></script>
 
 </body>
 </html>

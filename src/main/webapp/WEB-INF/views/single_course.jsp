@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +37,7 @@
 	var cookieuser = getCookie("username");
 
 	document.getElementById("read").innerHTML = cookieuser;
-	
+	document.getElementById("showuser").innerHTML = cookieuser;
 	var link = document.getElementById("account");
 	if(cookieuser != ""){	
 		link.innerHTML = "Myaccount: " + cookieuser;
@@ -78,11 +79,10 @@
 				<div class="row">
 					<div class="col-lg-10 offset-lg-1">
 						<div class="course-note">Featured Course</div>
-						<h3>HTNL5 & CSS For Begginers</h3>
+						<h3>${course.coursename}</h3>
 						<div class="course-metas">
-							<div class="course-meta">
+<!-- 							<div class="course-meta">
 								<div class="course-author">
-									<div class="ca-pic set-bg" data-setbg="img/authors/2.jpg"></div>
 									<h6>Teacher</h6>
 									<p>William Parker, <span>Developer</span></p>
 								</div>
@@ -92,51 +92,104 @@
 									<h6>Category</h6>
 									<p>Development</p>
 								</div>
-							</div>
+							</div> -->
+ 							<div class="course-meta">
+								<div class="cm-info">
+									<h6>ID</h6>
+									<p>${course.ID}</p>
+								</div>
+							</div> 
 							<div class="course-meta">
 								<div class="cm-info">
-									<h6>Students</h6>
-									<p>120 Registered Students</p>
+									<h6>Session</h6>
+									<p>${course.session}</p>
 								</div>
 							</div>
 							<div class="course-meta">
 								<div class="cm-info">
-									<h6>Reviews</h6>
-									<p>2 Reviews <span class="rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star is-fade"></i>
-									</span></p>
+									<a href="reviews">See Course's Ratings</a>									
 								</div>
 							</div>
+							<div class="course-meta">
+								<div class="cm-info">
+									<a href="homework">See Course's Homework</a>									
+								</div>
+							</div>
+							<br>
+							<br>
 						</div>
-						<a href="#" class="site-btn price-btn">Price: $15</a>
-						<a href="#" class="site-btn buy-btn">Buy This Course</a>
+						<a href="#" class="site-btn price-btn">Enroll</a>
+						<br><br>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/v4oN4DuR7YU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						
 					</div>
-				</div>
+				</div>			
 			</div>
-			<img src="img/courses/single.jpg" alt="" class="course-preview">
+			<br>
+			
+
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1 course-list">
 					<div class="cl-item">
 						<h4>Course Description</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur. Phasellus sollicitudin et nunc eu efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut vulputate mauris ligula a metus. Aenean vel congue diam, sed bibendum ipsum. Nunc vulputate aliquet tristique. Integer et pellentesque urna. Lorem ipsum dolor sit amet, consectetur. Phasellus sollicitudin et nunc eu efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. </p>
+						<p>${course.description}</p>
 					</div>
-					<div class="cl-item">
+<!-- 					<div class="cl-item">
 						<h4>Certification</h4>
-						<p>Phasellus sollicitudin et nunc eu efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut vulputate mauris ligula a metus. Aenean vel congue diam, sed bibendum ipsum. Nunc vulputate aliquet tristique. Integer et pellentesque urna. Lorem ipsum dolor sit amet, consectetur. Phasellus sollicitudin et nunc eu efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum.</p>
+						<p>Phasellus sollicitudin et nunc </p>
 					</div>
 					<div class="cl-item">
 						<h4>The Instructor</h4>
-						<p>Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut vulputate mauris ligula a metus. Aenean vel congue diam, sed bibendum ipsum. Nunc vulputate aliquet tristique. Integer et pellentesque urna. Lorem ipsum dolor sit amet, consectetur. Phasellus sollicitudin et nunc eu efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut vulputate mauris ligula a metus. </p>
+						<p>Sed ligula nulla</p>
+				    </div> -->
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- single course section end -->
+	<section class="search-section">	
+		<div class="container">
+			<div class="course-meta-area">
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1">
+						<div class="course-metas">
+							<h5 style="color:#C55F5F;">Ask questions:</h5>
+							<p id="showuser">Guess</p>
+							<form action="/action_page.php">
+						 	  <textarea name="question" rows="3" cols="80">
+						 	  </textarea><br>
+							  <input type="submit" value="Submit">
+							</form>
+						</div>
+						<br><br>
+						<div class="course-metas">
+							<c:if test="${questionlist != null}">
+							    <table>
+							    		<tr>
+								    		<th>Title</th>
+								    		<th>Content</th>
+								    		<th>Post_date</th>
+								    		<th>Reply</th>
+								    		<th>Reply_date</th>
+							    		</tr> 
+							        <c:forEach var="q" items="${questionlist}">
+							            <tr>
+							                <td>${q.title}</td>
+							                <td>${q.content}</td>
+							                <td>${q.date}</td>
+							                <td>${q.reply}</td>
+ 							                <td>${q.rdate}</td>
+							            </tr>
+							        </c:forEach>
+							    </table>
+							</c:if>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- single course section end -->
 
 
 </body>

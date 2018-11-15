@@ -50,6 +50,7 @@
 			</td>
 		</tr>
          </table>
+         <br>
          <form:button id="register" name="register" class="site-btn">Register</form:button>
          <br><br>
          <a href="/springMVC">Home</a>

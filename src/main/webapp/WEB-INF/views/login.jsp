@@ -29,7 +29,6 @@
 		  <br>
 		  <br>
           <h4 style="color:Tomato;">${message}</h4>
-
   </div>
 </section>
 
